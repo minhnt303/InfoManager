@@ -1,0 +1,51 @@
+﻿@model IEnumerable<InfoManager.Models.Info>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+	@Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.NameOfInfo)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.CategoryOfInfoID)
+		</th>
+		<th></th>
+	</tr>
+	@{var itemNumber = 0;}
+	@foreach (var item in Model)
+	{
+		itemNumber = itemNumber + 1;
+	}
+	@{ var a = itemNumber; }
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.NameOfInfo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.CategoryOfInfoID)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { id = item.InfoId }) |
+				@Html.ActionLink("Details", "Details", new { id = item.InfoId }) |
+				@Html.ActionLink("Delete", "Delete", new { id = item.InfoId })
+			</td>
+		</tr>
+	}
+
+</table>
+
+<p>Number of item @(a)</p>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
