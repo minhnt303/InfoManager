@@ -13,7 +13,7 @@ namespace InfoManager.Controllers
     public class InfosController : Controller
     {
         private InfoDBContext db = new InfoDBContext();
-
+        //jjjasdjkjasd
         // GET: Infos
         public ActionResult Index()
         {
